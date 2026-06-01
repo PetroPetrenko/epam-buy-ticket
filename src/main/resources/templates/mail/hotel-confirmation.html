@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; }
+        .header { background-color: #003580; color: white; padding: 20px; text-align: center; border-radius: 8px 8px 0 0; }
+        .content { border: 1px solid #ddd; padding: 20px; border-top: none; border-radius: 0 0 8px 8px; }
+        .booking-id { font-weight: bold; color: #003580; font-size: 1.2em; }
+        .detail-row { display: flex; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px solid #f9f9f9; padding-bottom: 5px; }
+        .label { color: #666; font-size: 0.9em; }
+        .value { font-weight: 500; }
+        .footer { text-align: center; margin-top: 20px; font-size: 0.8em; color: #888; }
+        .button { display: inline-block; background-color: #0071c2; color: white; padding: 12px 25px; text-decoration: none; border-radius: 4px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Подтверждение бронирования</h1>
+    </div>
+    <div class="content">
+        <p>Здравствуйте!</p>
+        <p>Ваше бронирование отеля успешно подтверждено. Ниже приведены детали вашего пребывания:</p>
+        
+        <div class="detail-row">
+            <span class="label">Номер бронирования:</span>
+            <span class="value booking-id" th:text="${reservationId}">HTL-12345</span>
+        </div>
+        <div class="detail-row">
+            <span class="label">Отель:</span>
+            <span class="value" th:text="${hotelName}">Grand Hotel</span>
+        </div>
+        <div class="detail-row">
+            <span class="label">Город:</span>
+            <span class="value" th:text="${city}">Paris</span>
+        </div>
+        <div class="detail-row">
+            <span class="label">Заезд:</span>
+            <span class="value" th:text="${checkIn}">2026-06-15</span>
+        </div>
+        <div class="detail-row">
+            <span class="label">Выезд:</span>
+            <span class="value" th:text="${checkOut}">2026-06-20</span>
+        </div>
+        <div class="detail-row">
+            <span class="label">Статус:</span>
+            <span class="value" style="color: green;" th:text="${status}">CONFIRMED</span>
+        </div>
+
+        <p>Мы будем рады видеть вас! Если у вас возникнут вопросы, пожалуйста, свяжитесь с нами.</p>
+        
+        <a href="#" class="button">Управление бронированием</a>
+    </div>
+    <div class="footer">
+        &copy; 2026 Customer CRM Booking System. Все права защищены.
+    </div>
+</body>
+</html>

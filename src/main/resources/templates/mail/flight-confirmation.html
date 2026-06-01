@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; }
+        .header { background-color: #1a1a1a; color: #f9c300; padding: 20px; text-align: center; border-radius: 8px 8px 0 0; }
+        .content { border: 1px solid #ddd; padding: 20px; border-top: none; border-radius: 0 0 8px 8px; }
+        .booking-id { font-weight: bold; color: #1a1a1a; font-size: 1.2em; }
+        .flight-info { background-color: #f4f4f4; padding: 15px; border-radius: 5px; margin: 20px 0; }
+        .detail-row { display: flex; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px solid #e0e0e0; padding-bottom: 5px; }
+        .label { color: #666; font-size: 0.9em; }
+        .value { font-weight: 500; }
+        .footer { text-align: center; margin-top: 20px; font-size: 0.8em; color: #888; }
+        .button { display: inline-block; background-color: #1a1a1a; color: #f9c300; padding: 12px 25px; text-decoration: none; border-radius: 4px; margin-top: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Ваш электронный билет</h1>
+    </div>
+    <div class="content">
+        <p>Здравствуйте, <span th:text="${passengerName}">Путешественник</span>!</p>
+        <p>Ваш авиабилет успешно забронирован и подтвержден. Приятного полета!</p>
+        
+        <div class="flight-info">
+            <div class="detail-row">
+                <span class="label">Номер бронирования:</span>
+                <span class="value booking-id" th:text="${bookingId}">FL-7890</span>
+            </div>
+            <div class="detail-row">
+                <span class="label">Откуда:</span>
+                <span class="value" th:text="${from}">London</span>
+            </div>
+            <div class="detail-row">
+                <span class="label">Куда:</span>
+                <span class="value" th:text="${to}">Paris</span>
+            </div>
+            <div class="detail-row">
+                <span class="label">Дата:</span>
+                <span class="value" th:text="${date}">2026-06-15</span>
+            </div>
+            <div class="detail-row">
+                <span class="label">Пассажир:</span>
+                <span class="value" th:text="${passengerName}">John Doe</span>
+            </div>
+        </div>
+
+        <p>Рекомендуем прибыть в аэропорт за 2 часа до вылета для прохождения регистрации.</p>
+        
+        <a href="#" class="button">Зарегистрироваться на рейс</a>
+    </div>
+    <div class="footer">
+        &copy; 2026 Customer CRM Airlines. Это письмо сформировано автоматически.
+    </div>
+</body>
+</html>

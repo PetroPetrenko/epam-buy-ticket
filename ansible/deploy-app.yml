@@ -1,0 +1,32 @@
+---
+- name: Setup Server and Deploy Application
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install Docker
+      apt:
+        name: docker.io
+        state: present
+        update_cache: yes
+
+    - name: Install Docker Compose
+      apt:
+        name: docker-compose
+        state: present
+
+    - name: Create app directory
+      file:
+        path: /opt/customer-crm
+        state: directory
+        mode: '0755'
+
+    - name: Copy docker-compose file
+      copy:
+        src: ../docker-compose.yml
+        dest: /opt/customer-crm/docker-compose.yml
+
+    - name: Deploy application
+      docker_compose:
+        project_src: /opt/customer-crm
+        state: present
+        pull: yes
